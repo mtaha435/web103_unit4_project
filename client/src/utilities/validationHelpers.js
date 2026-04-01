@@ -7,10 +7,10 @@ export const validateCarCombination = (car) => {
     // Requirement: Check for impossible combinations
     
     // Example 1: Convertible + Roof Rack
-    if (car.exterior === 'Convertible' && car.roof === 'Roof Rack') {
+    if (car.exterior === 'Convertible' && car.roof !== 'Standard') {
         return {
             isValid: false,
-            message: "⚠️ Design Error: You cannot add a Roof Rack to a Convertible exterior."
+            message: "Design Error: A Convertible cannot have roof modifications (Sunroof, Panoramic, or Roof Rack). Please set Roof to 'Standard'."
         };
     }
 
@@ -18,7 +18,7 @@ export const validateCarCombination = (car) => {
     if (car.wheels === 'Luxury' && car.exterior === 'Off-Road Body') {
         return {
             isValid: false,
-            message: "⚠️ Design Error: Luxury wheels are not compatible with Off-Road body kits."
+            message: "Design Error: Luxury wheels are not compatible with Off-Road body kits."
         };
     }
 
